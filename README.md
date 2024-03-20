@@ -1,2 +1,3 @@
-# kotlin-today-magazine
-Kotlin Today Magazine
+# Kotlin Today Magazine
+
+Work in progress! Psst 🤫
