@@ -100,7 +100,7 @@ class HelloReader() {
 By changing every call to `Paths.get(...)` with `FileSystem.getPath(...)`, I can
 make this testable (such as with [Jimfs](https://github.com/google/jimfs)):
 
-```
+```kotlin
 class HelloReader(
   val fileSystem: FileSystem,
 ) {
