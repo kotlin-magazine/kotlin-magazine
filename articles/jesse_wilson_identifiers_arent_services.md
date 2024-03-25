@@ -117,7 +117,7 @@ java.net.InetSocketAddress
 I get myself into trouble whenever I use Java's Internet address API:
 
 ```
-// Wrong! This eagerly looks an IP address for publicobject.com.
+// Wrong! This eagerly looks up an IP address for publicobject.com.
 val connectAddress = InetSocketAddress("publicobject.com", 443)
 ```
 
