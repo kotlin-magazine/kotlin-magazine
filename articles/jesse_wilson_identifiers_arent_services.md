@@ -6,7 +6,7 @@ By [Jesse Wilson][jesse_wilson], contributor to lots of open-source Kotlin stuff
 
 
 The programs I write frequently involve strings that identify things: email
-addresses, file paths, URLs, time zones... even credit card numbers and drivers'
+addresses, file paths, URLs, time zones... even credit card numbers and driver's
 license numbers.
 
 For many years I followed the patterns of the Java standard library when
