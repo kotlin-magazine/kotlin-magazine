@@ -83,7 +83,7 @@ java.nio.Path
 -------------
 
 The new (2011) file system APIs are on the right track, but you have to be
-careful to use it in a testable way. Each `Path` has both a path string (the
+careful to use them in a testable way. Each `Path` has both a path string (the
 identifier) and a file system (the service).
 
 This code is implicitly coupled to the default file system:
