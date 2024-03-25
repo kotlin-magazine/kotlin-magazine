@@ -28,7 +28,7 @@ println(content.decodeToString())
 This does a lot in 3 lines of Kotlin! We identify a URL, fetch its contents, and
 print them to the console. But despite its compactness, this code is bad.
 
-There's an HTTP client hiding in the URL class. When I call `openStream()`, that
+An HTTP client is hiding in the URL class. When I call `openStream()`, that
 client is prepared and put to work. I don’t like being cut out of that setup! I
 can't dependency-inject my own configured instance for production or a fake in a
 test.
