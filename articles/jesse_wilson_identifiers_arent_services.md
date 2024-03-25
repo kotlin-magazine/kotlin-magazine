@@ -98,7 +98,7 @@ class HelloReader() {
 ```
 
 By changing every call to `Paths.get(...)` with `FileSystem.getPath(...)`, I can
-make this testable (such as with [Jimfs]):
+make this testable (such as with [Jimfs](https://github.com/google/jimfs)):
 
 ```
 class HelloReader(
