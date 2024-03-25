@@ -61,7 +61,7 @@ abstraction over a specific quartz crystal that’s bound to the physical world!
 java.io.File
 ------------
 
-Java's original file class both _identifies_ a location on the file system and
+Java's original file class _identifies_ both a location on the file system and
 also _operates_ on that location.
 
 I might write an Android app that sends its collection of cached images to the
