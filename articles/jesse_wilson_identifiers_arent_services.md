@@ -175,7 +175,7 @@ Advice
 When using an identifier type like `File`, `InetSocketAddress`, or `TimeZone`,
 pay careful attention to what side effects your identifier is triggering.
 
-When writing your own identifier code, please use a data class for the value
+When writing your identifier code, please use a data class for the value
 part and a separate interface for its related services.
 
 
