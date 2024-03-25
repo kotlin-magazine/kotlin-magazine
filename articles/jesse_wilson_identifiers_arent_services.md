@@ -1,7 +1,7 @@
 Identifiers aren’t Services
 ===========================
 
-By [Jesse Wilson][jesse_wilson], contributor to lots of open source Kotlin stuff including
+By [Jesse Wilson][jesse_wilson], contributor to lots of open-source Kotlin stuff including
 [OkHttp][okhttp] and [Zipline][zipline].
 
 
