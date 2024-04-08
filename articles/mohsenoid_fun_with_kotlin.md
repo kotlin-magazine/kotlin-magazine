@@ -31,7 +31,7 @@ Did you know that Kotlin was named after a secret island near St. Petersburg? It
 
 ## KotlinConf 2024 Highlights
 
-At KotlinConf 2023, JetBrains dropped some bombshells:
+At KotlinConf 2024, JetBrains dropped some bombshells:
 
 - **Kotlin 1.9.30**: Now with built-in teleportation (beta feature).
 - **Kotlin/Native for Apple Silicon**: Because even your MacBook wants to code in Kotlin.
