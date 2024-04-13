@@ -2,21 +2,21 @@
 
 ## Why Playwright?
 
-Recently in my team we faced the problem of how to convert HTML file to PDF without making any hacks or being limited to use old versions of CSS. We also wanted the solution to have a good performance, to not make the customers wait for seconds to receive back the generated PDF. We also wanted the project to be open source, so we can support it when necessary.
+Recently, my team encountered the challenge of converting HTML files to PDF without resorting to hacks or outdated CSS versions. Our goal was to find a high-performance, open-source solution that would not keep customers waiting for their generated PDFs. After evaluating several options, we found that none of the popular projects met our requirements.
 
-Finally we evaluated a lot of solutions, that unfortunately didn't satisfy our needs. Among them we evaluated popular projects: Gotenberg, Flying Saucer, PDFBox. The closest to satisfy our needs was Gotenberg, but we felt we still can achieve a better performance.
+After two rounds of searching for possible solutions, we found that Gotenberg, Flying Saucer, and PDFBox did not fully satisfy our needs.
 
-After second round of looking for possible solutions, I found [Playwright](https://playwright.dev/). Although its main purpose is not about generating PDF, it is one of the functionality it provides. Playwright originally works with Node.js, but there's a Java version called Playwright For Java, which works good also with Kotlin.
+However, we discovered [Playwright](https://playwright.dev/), which, although not primarily designed for generating PDFs, provides this functionality. Playwright is originally designed for use with Node.js, but there is also a Java version called Playwright for Java, which works well with Kotlin.
 
 ## What about scalability?
 
-After making some tests Playwright happened to be very performant. However, we needed the solution to be also scalable, so it can easily handle up to 100 conversions per second. PDF generation is quite CPU and memory consuming process, so we couldn't just run 100 instances and keep it running, even during low traffic hours. I came up with an idea: What if we could do a pool of playwrights, like a pool of DB connections?_
+After conducting tests, we found that Playwright is highly performant. However, we also required a scalable solution that could handle up to 100 conversions per second. Generating PDFs is a CPU and memory-intensive process, so running 100 instances continuously, even during low traffic hours, was not feasible.   
 
-That was the right choice, and finally we decided to use [Apache Commons Pool](https://commons.apache.org/proper/commons-pool/) for that purpose.
+To address this, I proposed creating a pool of Playwright instances, similar to a pool of database connections. We decided to use Apache Commons Pool for that purpose, which was the right choice.
 
 ## Time to code!
 
-Now, when we picked the tools we can finally write some code! For the purpose of this article I'll use Spring Boot 3.2.x, but the example with a low effort should work in any other framework. I won't dig into the project configuration here, please check the example repository to find Gradle imports and tasks.
+Now that we have selected our tools, we can begin writing code. For this article, I will be using Spring Boot 3.2.x, but the example should work with any other framework. Project configuration details will not be covered here, but Gradle imports and tasks can be found in the example repository.
 
 The pool works like following:
 1. A client requests an object from the pool using the `borrowObject()` method.
@@ -32,7 +32,7 @@ The pool works like following:
 11. The client can close the pool using the `close()` method.
 12. The pool releases all resources associated with it.
 
-We need to focus on the point 4. and create the PooledObjectFactory instance, which will tell the pool how to work with our Playwright instances:
+To implement point 4, we must create a PooledObjectFactory instance that will instruct the pool on how to handle our Playwright instances.
 
 ```kotlin
 class BrowserContextPooledObjectFactory : PooledObjectFactory<BrowserContext>, AutoCloseable {
@@ -94,7 +94,7 @@ class BrowserContextPooledObjectFactory : PooledObjectFactory<BrowserContext>, A
 }
 ```
 
-The class above is the core of our solution. This simple implementation is enough to be now used with the pool configuration. Let's create a bean with the pool now:
+The above class is the foundation of our solution. This straightforward implementation is sufficient for use with the pool configuration. Let's now create a bean with the pool:
 
 ```kotlin
 @Configuration  
@@ -123,11 +123,11 @@ class PlaywrightConfig{
 }
 ```
 
-This configuration defines a pool with 5 objects that will be created during the startup, and then this will be the minimum amount of instances available to borrow. If necessary we increase the amount up to 15 instances, but we allow max 10 instances to be in the idle state. They will be removed after 3 minutes without being borrowed again.
+This configuration defines a pool of 5 objects that will be created during startup. These 5 objects will be the minimum amount of instances available to borrow. If necessary, the amount can be increased up to 15 instances, but only a maximum of 10 instances can be in the idle state. Any idle instances will be removed after 3 minutes of not being borrowed again.
 
 ## Play(_wright_) time!
 
-To play with the solution you can use this very simple example:
+To test the solution, use this simple example:
 
 ```kotlin
 @RestController  
@@ -150,10 +150,11 @@ class TestController(
 }
 ```
 
-What it does, it takes an instance of BrowserContext and puts a HTML code to the first page of the browser window. Then it prints to PDF and returns a ByteArray which needs to be converted to ByteArrayInputStream and such a thing with proper headers can be returned from the controller metod.
+The function takes a BrowserContext instance, adds HTML code to the first page of the browser window, prints it to PDF, and returns a ByteArray. This ByteArray should be converted to a ByteArrayInputStream and returned from the controller method with proper headers.
 
 ## What's next?
-Having the simple implementation and the config above is enough if you don't run a very popular service that needs to generate hundreds of PDFs per second. If you care about the concurrent performance, most likely you'll need both horizontal and vertical scaling. On M1 Pro processor I could the most effectively run 20 browser instances and that caused processing 20 concurrent requests in 550-650ms, which is a good result. In my team we assumed the same number per Kubernetes pod and we autoscale based on the CPU usage.
+
+The provided implementation and configuration are sufficient for services that do not require generating a high volume of PDFs. However, for optimal concurrent performance, both horizontal and vertical scaling may be necessary. During testing on an M1 Pro processor, 20 browser instances were found to effectively process 20 concurrent requests in 550-650ms, which is a favorable result. My team assumes the same number of instances per Kubernetes pod and autoscales based on CPU usage.
 
 ## Useful links:
 * The example implementation you can find on my GitHub: https://github.com/marrek13/kotlin-html-to-pdf-demo
