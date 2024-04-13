@@ -1,4 +1,4 @@
-# Convert HTML to PDF with Kotlin
+# Convert HTML to PDF with Kotlin/JVM
 
 ## Why Playwright?
 
