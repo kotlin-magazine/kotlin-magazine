@@ -19,3 +19,6 @@ We've asked them: "What’s your take on Kotlin Multiplatform?". Here are their 
 
 > Appreciating cross-platform code, we faced hurdles with KMP SDK. It inflated our iOS SDK size, making distribution problematic. Runtime crashes were tough to debug. For adoption, it should compile without needing a support library. KMP’s framework requirement, closed-source binary limits, and generated types like KotlinIterator and KotlinShort, which bloat the binary and complicate integration with other KMP apps, were significant concerns.
 > &mdash; <cite>Luke Davis</cite>
+
+> KMP might seem like a great solution on paper, but its promise falls short without a good strategy to get iOS developers to embrace and join the development. Not having iOS developers on board might lead to a slower development process. iOS devs should also be part of the planning for what KMP should include.
+> &mdash; <cite>José Jeria</cite>
