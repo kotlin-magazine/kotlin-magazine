@@ -313,7 +313,7 @@ fun main() {
       color(
         f = FG.YELLOW,
         s = "$BLINK You used $moves steps. Can you use less? "
-      ) + 128165.utf8
+      ) + 127808.utf8
   )
 }
 
