@@ -12,7 +12,7 @@ Did you know Kotlin was named after a secret island near St. Petersburg? It’s 
 - **Population:** 42 programmers and a talking parrot.
 - **Official Language:** Kotlin, obviously.
 - **Currency:** Null coins (because null is priceless).
-- **National Dish:** `suspend fun borscht() { /* Yummy code here */ }`
+- **National Sport**: Swimming in cold flows and hot channels.
 
 
 ## Top 10 Kotlin Pranks for Developers
