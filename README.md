@@ -11,6 +11,12 @@ Launched on May 23rd, 2024 in time for [KotlinConf 2024](https://kotlinconf.com/
 More variants - as for professional printing - can be found here:
 [Latest Release (1.0.0)](https://github.com/kotlin-magazine/kotlin-magazine/releases/tag/1.0.0)
 
+## Follow us
+
+Follow us on [Twitter](https://x.com/funcode_mag) and [Mastodon](https://mastodon.social/@funcode_mag)! We're looking forward to chatting with you!
+
+Also: if you happen to be at KotlinConf 2024 in Copenhagen, just find us at the conference! 🙌
+
 ## History
 
 It started out as a cover of an imaginary "Kotlin Today Magazine" as an April's fools on April 1st, 2024, on [kotlintoday.com](https://kotlintoday.com/):
