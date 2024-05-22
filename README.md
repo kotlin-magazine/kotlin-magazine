@@ -1,18 +1,21 @@
 # fun code() – A magazine for Kotlin™ developers
 
-Launched May 23rd in time for [KotlinConf 2024](https://kotlinconf.com/).
+Launched on May 23rd, 2024 in time for [KotlinConf 2024](https://kotlinconf.com/).
 
 ## 🎉 Download as PDF 🎉
 
-Download the PDF here and read it online or print it to hold it in your hands!
+<img src="releases/1.0.0/cover.webp" alt="fun code() Magazine cover" width="220" />
 
-[kotlin-magazine/releases](https://github.com/kotlin-magazine/kotlin-magazine/releases)
+[Download the PDF here](releases/1.0.0/fun%20code%28%29%20Magazine%201.0.0.pdf) and read it online or print it to hold it in your hands!
+
+More variants - as for professional printing - can be found here:
+[Latest Release (1.0.0)](https://github.com/kotlin-magazine/kotlin-magazine/releases/tag/1.0.0)
 
 ## History
 
 It started out as a cover of an imaginary "Kotlin Today Magazine" as an April's fools on April 1st, 2024, on [kotlintoday.com](https://kotlintoday.com/):
 
-<img src="readme/kotlin_today_magazine_aprils_fools.webp" width="200" alt="Kotlin Today Magazine cover as an April's fools" />
+<img src="readme/kotlin_today_magazine_aprils_fools.webp" width="220" alt="Kotlin Today Magazine cover as an April's fools" />
 
 Then we created a real one - with real content, and changed the name to "fun code()" 🤯
 
